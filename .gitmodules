@@ -1,3 +1,9 @@
 [submodule "retina"]
 	path = retina
 	url = https://github.com/taasinsaquib/retina.git
+[submodule "trainSNNs"]
+	path = trainSNNs
+	url = https://github.com/taasinsaquib/trainSNNs.git
+[submodule "RunSNN"]
+	path = RunSNN
+	url = https://github.com/taasinsaquib/RunSNN.git
