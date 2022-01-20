@@ -7,3 +7,6 @@
 [submodule "RunSNN"]
 	path = RunSNN
 	url = https://github.com/taasinsaquib/RunSNN.git
+[submodule "BiomimeticEye"]
+	path = BiomimeticEye
+	url = https://github.com/taasinsaquib/BiomimeticEye.git
