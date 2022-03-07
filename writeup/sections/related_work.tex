@@ -1,0 +1,58 @@
+  \documentclass[../taasin.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Our work in this thesis is inspired by the prior work of \cite{Arjun}, who created the comprehensive eye model with realistic organs. This system was operated by either inverse dynamics or a series of neural networks. The neural network of interest in this thesis, the LiNet foveation controller, was developed by Honglin Chen. That work built on the simple eye model used in \cite{Masaki} in creating a biomimetic human.
+
+While \cite{Arjun}'s model provides realistic eye motion, the foveation controller is still a high-level abstraction of how the eye works. This thesis pushes the eye to be more biologically realistic. Firstly, it is believed that sensory information is rate encoded when input to the nervous system. In addition, event-based data emulates the ON-OFF amacrine cells of the retina. Packaging these two features along with biologically inspired neurons SNNs is a difficult problem that can further our understanding of how the visual system actually works.
+
+The rest of this section overviews research related to SNNs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{SNNs in Computer Vision}
+
+Many computer vision tasks are being solved with SNNs. MNIST remains a popular benchmark \cite{10.3389/fncom.2015.00099}, but more complex vision datasets such as CIFAR-10 are also being solved \cite{10.3389/fnins.2019.00095} with good performance. 
+
+% graphs or tables of SNN vs ANN performance
+
+% compare architectures
+
+When feeding images to a SNN, they must be transformed into spikes over time. There are encoding methods to perform this transformation, but there is also new camera technology that allows one to directly record spikes from a scene. These are known as dynamic vision sensors, or DVS cameras. These cameras output "events" for each pixel over time. These events correspond to changes in brightness. MNIST has been recorded with a DVS camera to create a dataset with more realistic spikes. \cite{event_vision_survey}
+
+Traditional CNN models can be trained to work with spiking input from DVS cameras (RESNET) \cite{resnet_events}
+
+% images of DVS MNIST
+
+% explain classification in SNNs and why regression is hard
+Most computer vision research with SNNs to date has been with classification problems, which are easier than regression problems. This is because there is a standard way to interpret spike trains to classify something, but there are many choices in how to interpret spike trains to represent continous valued outputs
+
+Our retina model deals with an unstructured input, whereas pixels in images from datasets such as MNIST and CIFAR-10 follow a structured arrangement. Permutation invariant MNIST, or PI-MNIST \cite{le2015simple}, is an interesting benchmark that changes the arrangement of pixels so that standard convolution layers cannot be used to classify digits. SNNs can be trained to have good performance on this benchmark, as shown by \cite{nengo}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Learning Algorithms}
+
+% STDP, WTA
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Converting ANNs}
+
+Many researchers understand the benefits of SNNs but want to avoid the hassle of training them. The main advantage is that one does not have to worry about the non-differentiability of the spiking function and can simply train a model in the standard way. The main task here is that one must find a way to scale the weights of the SNN relative to the weights of the ANN. The limitations are that these models require a large number of timesteps, slightly biting into the low power promise.
+
+The main work was \cite{convert_no_bias}. Later work allowed for conversion of many types of layers \cite{convert_with_bias}. Now, very deep conv models can be converted with little accuracy loss \cite{convert_VGG}.
+
+This is orthogonal to my work here as these projects aim to simply re-create performance on a benchmark whereas I explore biologically inspired spiking inputs. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Neuromorphic Hardware}
+
+Hardware tailored to run SNNs is known as "neuromorphic". These chips take advantage of the fact that the activation function only outputs 1's and 0's to operate with lower power consumption. Currently, GPU's are optimized for multiply-and-accumulate (MAC) operations, which are very power hungry when working with floating point numbers. Neuromorphic chips are also optimized for the asynchronous nature of spikes and can run new types of learning algorithms. 
+
+Many companies are investing time and resources to creating neuromorphic chips. Intel's Loihi \cite{8259423} is on its third generation, and IBM, Samsung, and many other large companies are betting on the future of this sector. Because this hardware is still difficult to acquire, this thesis simulates SNNs on a GPU. Therefore we could not verify the power savings and low latency promised by our work.
+
+\end{document}

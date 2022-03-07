@@ -1,0 +1,32 @@
+\documentclass[../taasin.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+\begin{document}
+
+We've brought two important additions to the biomimetic eye model. First, the use of a spiking neural network to replace the foveation controller. We use an encoding method that allows for sparse computation and emulates what we believe happens to light at the retina. In addition, training an SNN from scratch with backpropagation to solve a regression task is a novel accomplishment. Our hybrid SNN architecture allows the user to make a trade off between added noise and more efficient inference. Finally, we've trained our SNN on event-based data, allowing the eye to focus on changes in the scene when performing object tracking.
+
+%********************************************************************%
+
+\subsection{Discussion}
+
+It makes sense to see more noisy motion from the models trained on delta ONVs
+as the eye tries to move to make sure that the ball is in the middle. If the eye stays
+still, then there will be no input events and it won't know where the ball is.
+
+It is interesting that 5 spiking layers followed by one linear output layer does not converge quickly, but simply 
+adding one more linear layer allows for learning. By creating the hybrid model, I allow for one to make a trade-off. More spiking layers, with the right hardware, allow for fast and low power computation. However, in their current form, adding more layers creates more output noise.
+
+%********************************************************************%
+
+\subsection{Future Work}
+
+% replace other NNs with SNNs
+
+Many learning techniques are being studied outside of standard backpropagation. This includes spike time dependent plasticity (STDP), which is inspired by a theory of how neurons in the brain reinforce certain pathways. More experimental network layers such as neuron ensembles with inhibition in \cite{Nengo} can also inspire more biologically plausible networks and help identify how parts of the visual cortex work.
+
+Given the difficulty of working with the unstructured ONV input, we would like to see if SNNs can be trained on classification tasks with this eye model. This would simulate reading and be an interesting experiment. Some work has been done on PI-MNSIT \cite{} Furthermore, finding one architecture to do both object tracking and classification would be closer to simulating the visual system.
+
+Finally, the work of this thesis was simulated on a GPU. Given access to neuromorphic hardware, we would like to verify the power and latency improvements proposed by our hybrid SNNs. Perhaps training with neuromorphic chips can open up new possibilities related to training.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

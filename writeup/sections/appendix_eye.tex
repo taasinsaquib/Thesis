@@ -1,0 +1,38 @@
+\documentclass[../taasin.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+\begin{document}
+\label{appendix:eye}
+
+In this appendix we offer more detail about the other subsystems of \cite{Arjun}'s biomimetic eye model. All muscles are simulated as Hill-type muscles. There are two methods of controlling each subsytem: inverse dynamic control and neural networks. Because the work of this thesis deals with the foveation controller, the subsystems in this appendix are all controlled with inverse dynamic control.
+
+Inverse dynamic control starts with computing the position that the eye needs to be in to keep up with the target. Given the current position and desired position, we can compute the angular acceleration needed to complete the movement. With the angular acceleration we can compute the torque that the muscles need to apply and finally reach the muscle activations to feed to the model.
+
+The neural network models output the change in muscle activations needed to compute the movements.
+
+% figures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Iris and Pupil}
+
+Light enters the eye through the pupil, and the iris is the muscle that controls how much light actually makes its way to the retina. The iris is controlled in the simulation by two muscles: the pupillary sphincter, which constricts the pupil, the pupillary dilator, which opens up the pupil. To correctly focus light onto the retina, the pupil constricts when there is a large amount of light and it dilates when there is a low amount. 
+
+One muscle activation value is used to simulate the pupil, where a positive value opens it up and a negative one constricts it. This activation can be determined by a shallow fully connected neural network. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Lens and Cornea}
+
+The lens and cornea serve to refract light to focus it onto the retina. Similar to the iris, the lens lengthens and shortens. The lens lengthens to focus more distant objects and shortens to focus on closer objects. 
+
+Unlike the iris, the lens is modeled with damped springs. It uses the same shallow neural network architecture as the iris and uses one activation value to control its length.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Extraocular (EOC) Muscles}
+
+This subsystem involves three pairs of muscles which work together to move the eyeball with 3 degrees of freedom. One pair controls horizontal movement, one pair controls vertical movement, and the last pair creates a twisting motion. Each muscle in a pair is allows movement in opposite directions.  
+
+The neural network that controls EOC muscles is a deep, fully connected network. Like the other muscle controllers it outputs an activation value for each muscle that dictates how to either contract or relax.
+
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass[../taasin.tex]{subfiles}
+\graphicspath{{\subfix{../figures/}}}
+\begin{document}
+
+The human visual system is an astounding computational machine. Photons of light hit the retina and are processed to allow humans to do multiple tasks with high precision. Additionally, the visual cortex completes these tasks quickly and with little energy. Computer vision algorithms have come very far in re-creating the performance of the visual cortex in terms of accuracy, but the use of GPUs means that they are still very much behind in terms of power and latency.
+
+Spiking neural networks (SNNs), hailed as the “third wave of deep learning,” offer a more biologically inspired neuron model that consumes much less power than the standard artificial neurons currently in use. With the right hardware in the form of neuromorphic chips and training techniques, many traditional AI tasks can be completed with SNNs. This thesis explores training SNNs to track a virtual target using a biomimetic eye model.
+
+\subsection{Contributions of the Thesis}
+
+To be more precise, the contributions of this thesis are as follows:
+
+\begin{itemize}
+  \item We train a spiking neural network from scratch 
+  \begin{itemize}
+    \item We choose between rate and latency encoding, the two most commonly used encoding methods. We also find the best encoding parameters for rate encoding.
+    \item We use a surrogate gradient to solve the dead neuron problem and allow for the use of standard deep learning optimization techniques.
+    \item We train the SNN to solve a regression task, which is more difficult than the often tackled classification task.
+  \end{itemize}
+  \item We introduce a hybrid SNN-ANN (artificial neural network) model that allows the user to make a trade-off between power consumption, latency, and amount of noise tolerated.
+  \item The eye is turned into an event-based model that only looks at what has changed in the scene. This is more biologically accurate and creates more sparse input to the model.
+\end{itemize}
+
+The original thesis of \cite{Arjun} tests the eye on different types of eye movements to demonstrate its biological accuracy. We also use these movements (saccade, fixation, and smooth pursuit) to test our SNN's performance on both normal and event-based data.
+
+\subsection{Overview}
+
+The remaining sections of this thesis are organized as follows:
+
+Chapter 2: An overview of relevant literature related to training SNNs and running them on neuromorphic hardware.
+
+Chapter 3: We lay out the computer vision task that we are trying to solve and detail the biomimetic eye model that we work with.
+
+Chapter 4: We describe the architecture of our SNN along with training techniques.
+
+Chapter 5: We detail how to encode colors seen at the retina into spiking inputs for our SNN.
+
+Chapter 6: We report our results and compare our SNN performance to that of the existing LiNet architecture.
+
+Chapter 7: We present our conclusions and offer ideas for future work.
+
+\end{document}
