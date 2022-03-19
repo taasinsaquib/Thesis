@@ -3,7 +3,7 @@
 
 @article{Arjun,
     author = {Nakada, Masaki and Lakshmipathy, Arjun and Chen, Honglin and Ling, Nina and Zhou, Tao and Terzopoulos, Demetri},
-    title = {Biomimetic Eye Modeling &amp; Deep Neuromuscular Oculomotor Control},
+    title = {Biomimetic Eye Modeling \& Deep Neuromuscular Oculomotor Control},
     year = {2019},
     issue_date = {December 2019},
     publisher = {Association for Computing Machinery},
@@ -87,10 +87,50 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Related Work
 
-@ARTICLE{10.3389/fncom.2015.00099,
+% SNN survey
+@InProceedings{snn_survey,
+    author="Jose, Julia Tressa
+    and Amudha, J.
+    and Sanjay, G.",
+    editor="El-Alfy, El-Sayed M.
+    and Thampi, Sabu M.
+    and Takagi, Hideyuki
+    and Piramuthu, Selwyn
+    and Hanne, Thomas",
+    title="A Survey on Spiking Neural Networks in Image Processing",
+    booktitle="Advances in Intelligent Informatics",
+    year="2015",
+    publisher="Springer International Publishing",
+    address="Cham",
+    pages="107--115",
+    isbn="978-3-319-11218-3"
+}
+
+% neuromorphic HW survey
+@article{snn_hw_survey,
+    author = {Bouvier, Maxence and Valentian, Alexandre and Mesquida, Thomas and Rummens, Francois and Reyboz, Marina and Vianello, Elisa and Beigne, Edith},
+    title = {Spiking Neural Networks Hardware Implementations and Challenges: A Survey},
+    year = {2019},
+    issue_date = {April 2019},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {15},
+    number = {2},
+    journal={ACM Journal on Emerging Technologies in Computing Systems},
+    issn = {1550-4832},
+    url = {https://doi.org/10.1145/3304103},
+    doi = {10.1145/3304103},
+    month = {apr},
+    articleno = {22},
+    numpages = {35},
+    keywords = {Neuromorphic computing, spiking, neural network, neuromorphic computing, spiking neural networks, hardware implementation, event driven, machine learning, hardware}
+}
+
+
+@ARTICLE{stdp,
     AUTHOR={Diehl, Peter and Cook, Matthew},   
     TITLE={Unsupervised learning of digit recognition using spike-timing-dependent plasticity},      
-    JOURNAL={Frontiers in Computational Neuroscience},      
+    JOURNAL={Frontiers in Computational Neuroscience},
     VOLUME={9},      
     YEAR={2015},      
     URL={https://www.frontiersin.org/article/10.3389/fncom.2015.00099},       
@@ -161,6 +201,7 @@
 
 % STDP with CNN
 @article{KHERADPISHEH201856,
+    author={Kheradpisheh, Saeed Reza and Ganjtabesh, Mohammad and Thorpe, Simon J. and Masquelier, Timothée},
     title = {STDP-based spiking deep convolutional neural networks for object recognition},
     journal = {Neural Networks},
     volume = {99},
@@ -220,7 +261,22 @@
    author={Mueggler, Elias and Rebecq, Henri and Gallego, Guillermo and Delbruck, Tobi and Scaramuzza, Davide},
    year={2017},
    month={Feb},
-   pages={142–149} }
+   pages={142–149} 
+}
+
+% spiking YOLO
+@article{spiking_yolo, 
+	title={Spiking-YOLO: Spiking Neural Network for Energy-Efficient Object Detection}, 
+	volume={34}, 
+	url={https://ojs.aaai.org/index.php/AAAI/article/view/6787}, 
+	DOI={10.1609/aaai.v34i07.6787}, 
+	number={07}, 
+	journal={Proceedings of the AAAI Conference on Artificial Intelligence}, 
+	author={Kim, Seijoon and Park, Seongsik and Na, Byunggook and Yoon, Sungroh},
+	year={2020},
+	month={Apr.}, 
+	pages={11270-11277} 
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -303,6 +359,18 @@
   URL = {https://www.ncbi.nlm.nih.gov/books/NBK10848/}
 }
 
+% rate vs latency
+@ARTICLE{spike_encoding_real_retina,
+    AUTHOR={Wang, Lei and Qiu, Yi-Hong and Zeng, Yanjun},   
+    TITLE={Coding Properties of Three Intrinsically Distinct Retinal Ganglion Cells under Periodic Stimuli: A Computational Study},      
+    JOURNAL={Frontiers in Computational Neuroscience},      
+    VOLUME={10},      
+    YEAR={2016},      
+    URL={https://www.frontiersin.org/article/10.3389/fncom.2016.00102},       
+    DOI={10.3389/fncom.2016.00102},      
+    ISSN={1662-5188},   
+}
+
 @ARTICLE{eventRetina,
     AUTHOR={Tayarani-Najaran, Mohammad-Hassan and Schmuker, Michael},   
     TITLE={Event-Based Sensing and Signal Processing in the Visual, Auditory, and Olfactory Domain: A Review},      
@@ -323,4 +391,37 @@
   number={6},
   pages={51-63},
   doi={10.1109/MSP.2019.2931595}
+}
+
+% human eye movement
+@article{human_eye,
+    author={Thomas, J. G.},
+    journal={The Journal of Physiology},
+    title={The dynamics of small saccadic eye movements},
+    year={1969},
+    pages={109-127},
+    doi={10.1113/jphysiol.1969.sp008684},
+    volume={200},
+    number={1}
+}
+
+@article{human_smooth_lateral,
+    author = {Schraa-Tam, Caroline and Lugt, Aad and Frens, Maarten and Smits, Marion and Broekhoven, P and Geest, Josef},
+    year = {2008},
+    month = {04},
+    pages = {535-44},
+    title = {An fMRI study on smooth pursuit and fixation suppression of the optokinetic reflex using similar visual stimulation},
+    volume = {185},
+    journal = {Experimental brain research. Experimentelle Hirnforschung. Expérimentation cérébrale},
+    doi = {10.1007/s00221-007-1176-9}
+}
+
+@book{ray_tracing,
+	author = {Shirley, Peter and Morley, R. Keith},
+	title = {Realistic Ray Tracing},
+	year = {2003},
+	isbn = {1568811985},
+	edition = {2},
+	publisher = {A. K. Peters, Ltd.},
+	address = {Natick, MA, USA},
 }

@@ -1679,8 +1679,8 @@
    \ifnum\c@vitaitems>0
       \ColumnSave
       \par\pagestyle{plain}
-      %\renewcommand\baselinestretch{\@spacing}\@normalsize
-      \renewcommand\baselinestretch{1.0}\@normalsize
+      \renewcommand\baselinestretch{\@spacing}\@normalsize
+    %   \renewcommand\baselinestretch{1.0}\@normalsize
       \begin{center}
          {\header{Vita}} \\
       \end{center}
@@ -1881,6 +1881,7 @@
 \usepackage[linesnumbered,ruled]{algorithm2e}
 \usepackage{mathtools}
 \usepackage{natbib}
+\def\cite#1{\citep{#1}}
 
 % must be re-defined after natbib is loaded
 \def\thebibliography#1{\chapter*{References\markboth
